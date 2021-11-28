@@ -97,7 +97,7 @@ Natan Tavares - [@Natan_Tvrs](https://twitter.com/Natan_Tvrs) - nattantavares.s1
 [stars-url]: https://github.com/NatanTavares/Challenge05-React/stargazers
 [issues-shield]: https://img.shields.io/github/issues/NatanTavares/Challenge05-React.svg?style=for-the-badge
 [issues-url]: https://github.com/NatanTavares/Challenge05-React/issues
-[license-shield]: https://img.shields.io/github/license/NatanTavares/Challenge05-React.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/NatanTavares/Challenge05-React?style=for-the-badge
 [license-url]: https://github.com/NatanTavares/Challenge05-React/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/natan-tavares/
