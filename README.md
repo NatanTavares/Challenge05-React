@@ -27,8 +27,6 @@
 
 ## About The Project
 
-<img src="docs/preview.gif" width="600"  />
-
 This is an application where your main goal is the service of reading posts like a blog. The application integrates with data coming from Prismic.
 
 - Global, common and individual stylizations;
