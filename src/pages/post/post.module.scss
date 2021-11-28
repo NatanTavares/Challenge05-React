@@ -1,1 +1,99 @@
-// TODO
+main {
+  .headerWrapper {
+    display: flex;
+    align-items: center;
+
+    height: 6.5625rem;
+  }
+
+  .bannerWrapper {
+    display: flex;
+
+    > div {
+      display: flex;
+      justify-content: center;
+
+      max-width: 1440px;
+      max-height: 400px;
+      margin: 0 auto;
+
+      overflow: hidden;
+    }
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      font-size: 3rem;
+      line-height: 3.625rem;
+      letter-spacing: -0.5px;
+    }
+
+    .info {
+      display: flex;
+      align-items: flex-start;
+
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+
+      color: var(--info);
+      font-size: 0.875rem;
+      line-height: 1.0625rem;
+
+      @media (max-width: 650px) {
+        gap: 0.75rem;
+      }
+
+      @media (max-width: 460px) {
+        gap: 1 0.5rem;
+      }
+
+      > div {
+        display: flex;
+        gap: 0.5rem;
+
+        @media (max-width: 650px) {
+          gap: 0.25rem;
+        }
+
+        @media (max-width: 460px) {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+        }
+      }
+    }
+
+    .content {
+      max-width: 45rem;
+
+      text-align: justify;
+      line-height: 1.5625rem;
+
+      h2 {
+        font-size: 2.25rem;
+        line-height: 140%;
+
+        margin-top: 4rem;
+        margin-bottom: 2.25rem;
+      }
+
+      p,
+      span {
+        color: var(--body);
+      }
+
+      ul,
+      ol {
+        color: var(--body);
+      }
+
+      a {
+        color: var(--highlight);
+      }
+    }
+  }
+}
