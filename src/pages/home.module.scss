@@ -1,1 +1,69 @@
-// TODO
+.container {
+  min-height: 100vh;
+
+  h1 {
+    font-size: 1.75rem;
+  }
+}
+
+.headerWrapper {
+  margin-bottom: 4rem;
+}
+
+.listOfPosts {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  margin-bottom: 4rem;
+
+  list-style: none;
+}
+
+.linkWrapper {
+  border: none;
+  background: none;
+
+  .link {
+    font-weight: 600;
+    font-weight: 1.3125rem;
+
+    color: var(--highlight);
+
+    cursor: pointer;
+  }
+}
+
+.PostPrevContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 43.75rem;
+  height: 6.75rem;
+
+  background: none;
+  border: none;
+
+  > p {
+    margin: 0.5rem 0 1.5rem;
+
+    color: var(--body);
+    line-height: 1.3125rem;
+  }
+}
+
+.PostPrevFooter {
+  display: flex;
+  gap: 1.5rem;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    font-size: 0.875rem;
+    line-height: 1rem;
+    color: var(--info);
+  }
+}
