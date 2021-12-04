@@ -10,7 +10,6 @@ import { prevPostFormatter } from '../utils/PrevPostFormatter';
 import Header from '../components/Header';
 
 import commonStyles from '../styles/common.module.scss';
-// FIXME: Responsividade não funciona
 import styles from './home.module.scss';
 
 type Post = {
@@ -118,7 +117,7 @@ export const getStaticProps: GetStaticProps = async () => {
     [Prismic.Predicates.at('document.type', 'posts')],
     {
       fetch: ['post.title', 'post.content'],
-      pageSize: 1,
+      pageSize: 2,
     }
   );
 
