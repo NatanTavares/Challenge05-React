@@ -4,6 +4,7 @@ import { RichText } from 'prismic-dom';
 
 type PostType = {
   first_publication_date: string | null;
+  last_publication_date: string | null;
   data: {
     title: string;
     banner: {
@@ -20,9 +21,21 @@ type PostType = {
 };
 
 export function PostFormatter(rawPost: PostType): PostType {
-  const date = format(new Date(rawPost.first_publication_date), 'dd MMM yyyy', {
-    locale: BRAZIL,
-  });
+  const publishedIn = rawPost.first_publication_date
+    ? format(new Date(rawPost.first_publication_date), 'dd MMM yyyy', {
+        locale: BRAZIL,
+      })
+    : null;
+
+  const editedOn = rawPost.last_publication_date
+    ? format(
+        new Date(rawPost.last_publication_date),
+        "dd MMM yyyy', às' hh:mm",
+        {
+          locale: BRAZIL,
+        }
+      )
+    : null;
 
   const contentFormatted = rawPost.data.content.map(content => ({
     heading: content.heading,
@@ -30,7 +43,8 @@ export function PostFormatter(rawPost: PostType): PostType {
   }));
 
   return {
-    first_publication_date: date,
+    first_publication_date: publishedIn,
+    last_publication_date: editedOn,
     data: {
       ...rawPost.data,
       content: contentFormatted,
