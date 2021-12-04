@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import Prismic from '@prismicio/client';
@@ -45,22 +46,19 @@ type PostProps = {
 export default function Post({ post, pagination }: PostProps): JSX.Element {
   const router = useRouter();
 
-  const estimatedReadingTime = (content: typeof post.data.content): number => {
+  const POST_FORMATTED = post && PostFormatter(post);
+
+  const estimatedReadingTime = useMemo((): string => {
     const wordsPerMinute = 200;
 
-    const words = content
-      .map(({ heading, body }) => {
-        const totalOfWordsInTheHeading = heading && heading.split(' ').length;
-        const totalOfWordsInTheBody = body[0].text.split(' ').length;
+    const totalOfWords = POST_FORMATTED.data.content.reduce((acc, curr) => {
+      const heading = curr.heading && curr.heading.split(' ').length;
+      const content = curr.body && curr.body[0].text.split(' ').length;
+      return acc + heading + content;
+    }, 0);
 
-        return totalOfWordsInTheHeading + totalOfWordsInTheBody;
-      })
-      .reduce((acc, curr) => acc + curr, 0);
-
-    return Math.ceil(words / wordsPerMinute);
-  };
-
-  const POST_FORMATTED = post && PostFormatter(post);
+    return `${Math.ceil(totalOfWords / wordsPerMinute)} min`;
+  }, [POST_FORMATTED.data.content]);
 
   if (router.isFallback) {
     return <h1>Carregando...</h1>;
@@ -96,9 +94,7 @@ export default function Post({ post, pagination }: PostProps): JSX.Element {
 
               <div>
                 <FiClock />
-                <span>
-                  {estimatedReadingTime(POST_FORMATTED.data.content)} min
-                </span>
+                <span>{estimatedReadingTime}</span>
               </div>
             </div>
 
